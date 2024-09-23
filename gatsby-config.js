@@ -1,10 +1,23 @@
+require('dotenv').config();
 /**
  * @type {import('gatsby').GatsbyConfig}
  */
 module.exports = {
   siteMetadata: {
-    title: `Places`,
-    siteUrl: `https://www.yourdomain.tld`
+    title: `Miejsca do zobaczenia`,
+    siteUrl: `https://www.yourdomain.tld`,
+    gmapKey: process.env.GATSBY_GMAPS_KEY,
   },
-  plugins: ["gatsby-plugin-postcss"]
+  plugins: [
+    {
+      resolve: 'gatsby-source-flotiq',
+      options: {
+        authToken: process.env.GATSBY_FLOTIQ_API_KEY,
+      },
+    },
+    'gatsby-plugin-image',
+    'gatsby-plugin-sharp',
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-postcss'
+  ]
 };
