@@ -6,7 +6,7 @@ const Marker = ({ name, marker, setShowModal, setShownMarkerData }) => {
   return (
     <>
       <button onClick={() => {setShowModal(true); setShownMarkerData(marker)}}>
-        <img src={Icon} title={name} className="w-5 h-8 z-0" alt={name}/>
+        <img src={Icon} title={name} className="absolute bottom-0 -left-2 w-5 h-8 z-0" alt={name}/>
       </button>
     </>
   );
